@@ -1,6 +1,6 @@
 package com.trajkovski.sfgdi.controller;
 
-import com.trajkovski.sfgdi.service.GreetingServiceImpl;
+import com.trajkovski.sfgdi.service.ConstructorServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +12,7 @@ class ConstructorInjectControllerTest {
 
     @BeforeEach
     void setUp() {
-        controller = new ConstructorInjectController(new GreetingServiceImpl());
+        controller = new ConstructorInjectController(new ConstructorServiceImpl());
     }
 
 
