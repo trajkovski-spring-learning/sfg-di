@@ -1,9 +1,6 @@
 package com.trajkovski.sfgdi;
 
-import com.trajkovski.sfgdi.controller.ConstructorInjectController;
-import com.trajkovski.sfgdi.controller.MyController;
-import com.trajkovski.sfgdi.controller.PropertyInjectedController;
-import com.trajkovski.sfgdi.controller.SetterInjectedController;
+import com.trajkovski.sfgdi.controller.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
@@ -14,6 +11,10 @@ public class SfgDiApplication {
     public static void main(String[] args) {
 
         ConfigurableApplicationContext context = SpringApplication.run(SfgDiApplication.class, args);
+
+        I18nController i18nController = (I18nController) context.getBean("i18nController");
+        System.out.println(i18nController.sayGreeting());
+
         MyController myController = (MyController) context.getBean("myController");
         System.out.println("------------- Primary");
         System.out.println(myController.sayHello());
@@ -30,4 +31,4 @@ public class SfgDiApplication {
         ConstructorInjectController constructorInjectedController = (ConstructorInjectController) context.getBean("constructorInjectController");
         System.out.println(constructorInjectedController.getGreeting());
     }
- }
+}
